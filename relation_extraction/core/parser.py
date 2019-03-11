@@ -4,13 +4,14 @@
 # Author: Daniil Sorokin (ukp.tu-darmstadt.de/ukp-home/)
 #
 import numpy as np
-np.random.seed(1)
 
 import os
 import codecs
 
-from core import keras_models
-from core import embeddings
+from relation_extraction.core import keras_models
+from relation_extraction.core import embeddings
+
+np.random.seed(1)
 
 
 class RelParser:

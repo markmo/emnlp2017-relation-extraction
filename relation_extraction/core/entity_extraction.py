@@ -21,9 +21,10 @@ np_parser = nltk.RegexpParser(np_grammar)
 
 def extract_entities_from_tagged(annotated_tokens, tags):
     """
-    The method takes a list of tokens annotated with the Stanford NE annotation scheme and produces a list of entites.
+    The method takes a list of tokens annotated with the Stanford NE annotation scheme and produces a list of entities.
 
-    :param annotated_tokens: list of tupels where the first element is a token and the second is the annotation
+    :param annotated_tokens: list of tuples where the first element is a token and the second is the annotation
+    :param tags
     :return: list of entities each represented by the corresponding token ids
 
     Tests:

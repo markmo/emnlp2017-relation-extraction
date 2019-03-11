@@ -4,7 +4,6 @@
 # Author: Daniil Sorokin (ukp.tu-darmstadt.de/ukp-home/)
 #
 import numpy as np
-np.random.seed(1)
 
 from keras import callbacks
 from keras.utils import np_utils
@@ -12,8 +11,10 @@ import hyperopt as hy
 import json
 
 from evaluation import metrics
-from core import keras_models, embeddings
+from relation_extraction.core import keras_models, embeddings
 from graph import io
+
+np.random.seed(1)
 
 
 def f_train(params):

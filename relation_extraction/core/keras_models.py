@@ -4,29 +4,31 @@
 # Author: Daniil Sorokin (ukp.tu-darmstadt.de/ukp-home/)
 #
 import os
-import ast, json
+import ast
+import json
 import numpy as np
-np.random.seed(1)
 
 from keras import layers, models, optimizers
 from keras import backend as K
 from keras import regularizers
 import tqdm
 
-from core import embeddings
-from graph import graph_utils
+from relation_extraction.core import embeddings
+from relation_extraction.graph import graph_utils
 
-RESOURCES_FOLDER = "../resources/"
+np.random.seed(1)
+
 module_location = os.path.abspath(__file__)
 module_location = os.path.dirname(module_location)
+resources_location = os.path.join(os.path.dirname(module_location), "resources")
 
-with open(os.path.join(module_location, "../model_params.json")) as f:
+with open(os.path.join(resources_location, "model_params.json")) as f:
     model_params = json.load(f)
 
-property_blacklist = embeddings.load_blacklist(os.path.join(module_location, "../../resources/property_blacklist.txt"))
-property2idx = {}
-with open(os.path.join(module_location, "../../resources/", model_params["property2idx"])) as f:
+property_blacklist = embeddings.load_blacklist(os.path.join(resources_location, "property_blacklist.txt"))
+with open(os.path.join(resources_location, model_params["property2idx"])) as f:
     property2idx = ast.literal_eval(f.read())
+
 idx2property = {v: k for k, v in property2idx.items()}
 
 _, position2idx = embeddings.init_random(np.arange(-model_params['max_sent_len'], model_params['max_sent_len']),

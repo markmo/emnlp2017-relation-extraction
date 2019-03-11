@@ -168,3 +168,8 @@ python precision_recall_curves.py model_ContextWeighted ../data/wikipedia-wikida
 
 ### License:
 * Apache License Version 2.0
+
+### Build Package
+```
+python setup.py bdist_wheel
+```

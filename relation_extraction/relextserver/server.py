@@ -4,7 +4,7 @@ import logging
 
 from pycorenlp import StanfordCoreNLP
 
-from core import entity_extraction
+from relation_extraction.core import entity_extraction
 from relation_extraction.core.parser import RelParser
 
 relext = Blueprint("relext_server", __name__, static_folder='static')
